@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Callable, Dict, Iterable, Optional, Union
 
+from .types import Unresolved
+
 if TYPE_CHECKING:
     try:
         from pydantic import BaseModel
     except ImportError:
-        from .types import Unresolved
-
         BaseModel: Unresolved = Unresolved
 
 
