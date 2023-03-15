@@ -35,10 +35,11 @@ import pydantic
 import tograml_pydantic_utils
 
 
+# class Example(tograml_pydantic_utils.TogramlModel)
 class Example(tograml_pydantic_utils.ExcludesNone, pydantic.BaseModel):
     field: typing.Optional[str] = None
 
-
+    
 model = Example()
 model.dict()
 ```
