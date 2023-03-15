@@ -17,7 +17,7 @@ keywords = [
 dynamic = ["version"]
 
 [tool.hatch.version]
-path = "src/tograml_pydantic_utils"
+path = "src/tograml_pydantic_utils/__init__.py"
 
 [project.optional-dependencies]
 pydantic = [
