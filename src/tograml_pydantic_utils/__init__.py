@@ -6,7 +6,7 @@ except ImportError:
     logger.info(
         "Pydantic not installed, to make type hints work for you - install it: "
         "pip install pydantic or "
-        "pip install telegram_network[pydantic]"
+        "pip install tograml-pydantic-utils[pydantic]"
     )
 
 from .mixins import ExcludesNone
