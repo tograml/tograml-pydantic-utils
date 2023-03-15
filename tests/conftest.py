@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 try:
     import pydantic
 except ImportError:
@@ -6,9 +8,8 @@ except ImportError:
 
 
 import pytest
-from tograml_pydantic_utils.update_forward_refs_helper import (
-    update_forward_refs_helper,
-)
+
+from tograml_pydantic_utils.update_forward_refs_helper import update_forward_refs_helper
 
 MARK = "update_forward_refs"
 
