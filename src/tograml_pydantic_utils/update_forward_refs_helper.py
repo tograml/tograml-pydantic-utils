@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Callable, Dict, Iterable, Optional, Union
 
-from .types import Unresolved
 
 if TYPE_CHECKING:
     try:
         from pydantic import BaseModel
     except ImportError:
+        from .types import Unresolved
+
         BaseModel: Unresolved = Unresolved
 
 
@@ -27,8 +28,8 @@ def update_forward_refs_helper(
 
     for __entity_name__ in __all__:
         __entity__ = __models__.get(
-            __entity_name__, Unresolved
-        )  # type: Union[Any, Unresolved, BaseModel]
+            __entity_name__, None
+        )  # type: Optional[Union[Any, BaseModel]]
         if not hasattr(__entity__, UPDATE_FORWARD_REFS):  # pragma: no cover
             continue
         __update_forwards_refs__: Callable[..., Any] = getattr(__entity__, UPDATE_FORWARD_REFS)

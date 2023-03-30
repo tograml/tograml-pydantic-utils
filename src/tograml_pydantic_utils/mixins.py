@@ -6,10 +6,8 @@ if TYPE_CHECKING:
     try:
         from pydantic.typing import AbstractSetIntStr, DictStrAny, MappingIntStrAny
     except ImportError:
-        from ._logger import logger
         from .types import Unresolved
 
-        logger.info("To use your type hints in `ExcludesNone` make sure pydantic is installed")
         AbstractSetIntStr: Unresolved = Unresolved
         MappingIntStrAny: Unresolved = Unresolved
         DictStrAny: Unresolved = Unresolved

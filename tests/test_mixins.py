@@ -15,22 +15,22 @@ class Model(ExcludesNone, pydantic.BaseModel):
 
 
 @pytest.mark.parametrize(
-    "model_instance,excepted",
+    "model,excepted",
     (
         [Model(field1=1), {"field1": 1}],
         [Model(field1=1, field2=2), {"field1": 1, "field2": 2}],
     ),
 )
-def test_excludes_none_dict(model_instance: Model, excepted: Dict[str, Any]) -> None:
-    assert model_instance.dict() == excepted
+def test_excludes_none_with_dict(model: Model, excepted: Dict[str, Any]) -> None:
+    assert model.dict() == excepted
 
 
 @pytest.mark.parametrize(
-    "model_instance,excepted",
+    "model,excepted",
     (
         [Model(field1=1), json.dumps({"field1": 1})],
         [Model(field1=1, field2=2), json.dumps({"field1": 1, "field2": 2})],
     ),
 )
-def test_excludes_none_json(model_instance: Model, excepted: str) -> None:
-    assert model_instance.json() == excepted
+def test_excludes_none_with_json(model: Model, excepted: str) -> None:
+    assert model.json() == excepted
